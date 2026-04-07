@@ -243,8 +243,8 @@ export function Footer() {
   return (
     <footer className="py-8 border-t border-white/5">
       <div className="container max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <span className="font-oswald text-lg font-bold tracking-widest gradient-text">АРХ·СТУДИЯ</span>
-        <span className="text-white/25 text-sm">© 2024 АРХ-СТУДИЯ. Все права защищены.</span>
+        <span className="font-oswald text-lg font-bold tracking-widest gradient-text">WEB-GALACTICS</span>
+        <span className="text-white/25 text-sm">© 2026 WEB-GALACTICS. Все права защищены.</span>
         <div className="flex gap-6 text-xs text-white/30">
           <a href="#" className="hover:text-white transition-colors">Политика конфиденциальности</a>
           <a href="#" className="hover:text-white transition-colors">Договор оферты</a>
