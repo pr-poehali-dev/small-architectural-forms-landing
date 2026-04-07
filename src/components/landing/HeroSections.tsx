@@ -14,7 +14,7 @@ export function Navbar({ menuOpen, setMenuOpen }: { menuOpen: boolean; setMenuOp
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 backdrop-blur-xl" style={{ background: "rgba(10,9,6,0.85)" }}>
       <div className="container max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#hero" className="font-oswald text-xl tracking-widest gradient-text font-black">АРХ·СТУДИЯ</a>
+        <a href="#hero" className="font-oswald tracking-widest gradient-text font-black text-2xl">WEB-GALACTICS</a>
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((l) => (
             <a key={l.href} href={l.href} className="text-sm text-white/60 hover:text-white transition-colors duration-200 font-medium tracking-wide uppercase">
