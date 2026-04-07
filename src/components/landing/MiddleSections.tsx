@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import { MATERIALS, REVIEWS, GALLERY, RevealSection } from "./shared";
+import { PrivacyModal } from "./PrivacyModal";
 
 const SEND_URL = "https://functions.poehali.dev/dfef0415-2ba0-42ac-8e11-16c1b798aba8";
 
@@ -21,6 +22,7 @@ function CalcModal({ open, onClose, area, floors, material, total }: CalcModalPr
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
+  const [privacyOpen, setPrivacyOpen] = useState(false);
 
   if (!open) return null;
 
@@ -56,6 +58,8 @@ function CalcModal({ open, onClose, area, floors, material, total }: CalcModalPr
   };
 
   return (
+    <>
+    <PrivacyModal open={privacyOpen} onClose={() => setPrivacyOpen(false)} />
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
       style={{ background: "rgba(0,0,0,0.85)", backdropFilter: "blur(6px)" }}
@@ -163,7 +167,7 @@ function CalcModal({ open, onClose, area, floors, material, total }: CalcModalPr
                 </button>
                 <span className="text-xs text-white/45 leading-relaxed pt-0.5">
                   Я согласен с{" "}
-                  <a href="#" className="text-brand-orange hover:underline">обработкой персональных данных</a>
+                  <button type="button" onClick={() => setPrivacyOpen(true)} className="text-brand-orange hover:underline transition-colors">обработкой персональных данных</button>
                   {" "}<span className="text-brand-orange">*</span>
                 </span>
               </label>
@@ -187,6 +191,7 @@ function CalcModal({ open, onClose, area, floors, material, total }: CalcModalPr
         )}
       </div>
     </div>
+    </>
   );
 }
 

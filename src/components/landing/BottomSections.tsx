@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import { FAQ_ITEMS, RevealSection } from "./shared";
+import { PrivacyModal } from "./PrivacyModal";
 
 export function FaqSection() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -46,6 +47,7 @@ function ContactForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
+  const [privacyOpen, setPrivacyOpen] = useState(false);
 
   const validate = () => {
     const e: Record<string, string> = {};
@@ -86,7 +88,9 @@ function ContactForm() {
   }
 
   return (
-    <div className="p-8 rounded-2xl border border-white/8" style={{ background: "rgba(28,25,21,0.8)" }}>
+    <>
+      <PrivacyModal open={privacyOpen} onClose={() => setPrivacyOpen(false)} />
+      <div className="p-8 rounded-2xl border border-white/8" style={{ background: "rgba(28,25,21,0.8)" }}>
       <form className="space-y-4" onSubmit={handleSubmit}>
         {/* Name */}
         <div>
@@ -159,7 +163,7 @@ function ContactForm() {
             </button>
             <span className="text-xs text-white/45 leading-relaxed pt-0.5">
               Я согласен с{" "}
-              <a href="#" className="text-brand-orange hover:underline">обработкой персональных данных</a>
+              <button type="button" onClick={() => setPrivacyOpen(true)} className="text-brand-orange hover:underline transition-colors">обработкой персональных данных</button>
               {" "}<span className="text-brand-orange">*</span>
             </span>
           </label>
@@ -181,6 +185,7 @@ function ContactForm() {
         </button>
       </form>
     </div>
+    </>
   );
 }
 
